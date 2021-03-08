@@ -1,3 +1,8 @@
+/*
+I wanted to saturate or desaturate the camera input.  It does not work yet.
+*/
+
+
 // Copyright (C) 2020 RunwayML Examples
 // 
 // This file is part of RunwayML Examples.
@@ -83,14 +88,11 @@ void setup(){
 void ccSaturateImageInteractionDraw( )
 {
   
-  if (mousePressed == true) {
-    // Show original image on mouse pressed ...
-    image(image, 0, 0);
-
-  } else {
-    float intensity = map(mouseX, 0, width, 0.0f, 2.0f);
-    image(Saturation.apply(image, intensity), 0, 0);
-  }
+ 
+    //float intensity = map(11, 0, 1200, 0.0f, 2.0f);
+    float intensity = map(1000, 0, 1200, 0.0f, 2.0f);
+    image(Saturation.apply(image, 0), 0, 0);
+  
 }
 void draw(){
   background(0);
