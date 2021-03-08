@@ -4,6 +4,10 @@ libraries/**
 templates
 examples
 tools
+modes
+
+## Compiled Apps
+**/application.*
 
 
 # # Logs
