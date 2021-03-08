@@ -46,7 +46,8 @@ Capture camera;
 // status
 String status = "waiting ~"+(waitTime/1000)+"s";
 
-String hostName = "GIAModelServer.jgwill.com" ;
+//String hostName = "GIAModelServer.jgwill.com" ;
+String hostName = "192.168.2.44" ;
 int serverPort = 8000;
 
 void setup(){
