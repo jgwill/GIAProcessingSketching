@@ -25,6 +25,22 @@
 // Running Adaptive-Style-Transfer model
 // example by George Profenza
 
+
+
+//--- ADding Saturation image correction from 
+/* Example for changing the saturation of an image.
+ * Use the mouse in X-axis (left and right) to change the intensity.
+ * Author: Nick 'Milchreis' Müller
+ */
+
+import milchreis.imageprocessing.*;
+
+
+
+ PImage image;
+
+
+
 // import video library
 import processing.video.*;
 
@@ -46,7 +62,8 @@ Capture camera;
 // status
 String status = "waiting ~"+(waitTime/1000)+"s";
 
-String hostName = "GIAModelServer.jgwill.com" ;
+//String hostName = "GIAModelServer.jgwill.com" ;
+String hostName = "192.168.2.44" ;
 int serverPort = 8000;
 
 void setup(){
@@ -63,6 +80,18 @@ void setup(){
   lastMillis = millis();
 }
 
+void ccSaturateImageInteractionDraw( )
+{
+  
+  if (mousePressed == true) {
+    // Show original image on mouse pressed ...
+    image(image, 0, 0);
+
+  } else {
+    float intensity = map(mouseX, 0, width, 0.0f, 2.0f);
+    image(Saturation.apply(image, intensity), 0, 0);
+  }
+}
 void draw(){
   background(0);
   // update timer
@@ -93,7 +122,8 @@ void sendFrameToRunway(){
   // read a new frame
   camera.read();
   // crop image to Runway input format (600x400)
-  PImage image = camera.get(0,0,600,400);
+     image = camera.get(0,0,600,400);
+    ccSaturateImageInteractionDraw( );
   // query Runway
   runway.query(image,ModelUtils.IMAGE_FORMAT_JPG,"contentImage");
 }
