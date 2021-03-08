@@ -1,4 +1,12 @@
-# Logs
+# Some processing subdir we want to ignore
+libraries
+libraries/**
+templates
+examples
+tools
+
+
+# # Logs
 logs
 *.log
 npm-debug.log*
